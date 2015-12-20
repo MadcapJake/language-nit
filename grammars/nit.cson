@@ -3,6 +3,7 @@ scopeName: "source.nit"
 fileTypes: [
   "nit"
 ]
+firstLineMatch: '^#!\\s*\\/.*\\snit'
 patterns: [
   {
     include: "#strings"
@@ -12,6 +13,9 @@ patterns: [
   }
   {
     include: "#comments"
+  }
+  {
+    include: "#entity"
   }
   {
     include: "#keyword"
@@ -24,9 +28,6 @@ patterns: [
   }
   {
     include: "#variable"
-  }
-  {
-    include: "#entity"
   }
 ]
 repository:
@@ -175,6 +176,10 @@ repository:
     ]
   "entity":
     patterns: [
+      {
+        name: "entity.name.function.nit"
+        match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
+      }
       {
         name: "entity.other.inherited-class.nit"
         match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
