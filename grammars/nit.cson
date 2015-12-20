@@ -197,9 +197,67 @@ repository:
   "markup":
     patterns: [
       {
-        name: "markup.raw.nit"
+        begin: "(?xi)(?<=
+          \\\"java\\\"|
+          \\\"java\\sinner\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.markup.java.nit"
+        patterns: [
+          {
+            include: "source.java"
+          }
+        ]
+      }
+      {
+        begin: "(?xi)(?<=
+          \\\"objc\\\"|
+          \\\"objc\\sbody\\\"|
+          \\\"objc\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.markup.objc.nit"
+        patterns: [
+          {
+            include: "source.objc"
+          }
+        ]
+      }
+      {
+        begin: "(?xi)(?<=
+          \\\"c\\+\\+\\\"|
+          \\\"c\\+\\+\\sbody\\\"|
+          \\\"c\\+\\+\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.markup.cpp.nit"
+        patterns: [
+          {
+            include: "source.cpp"
+          }
+        ]
+      }
+      {
         begin: "`{"
         end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.markup.c.nit"
+        patterns: [
+          {
+            include: "source.c"
+          }
+        ]
       }
     ]
   "entity":
