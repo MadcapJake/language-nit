@@ -176,6 +176,10 @@ repository:
   "entity":
     patterns: [
       {
+        name: "entity.other.inherited-class.nit"
+        match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
+      }
+      {
         name: "entity.name.type.nit"
         match: "[A-Z][a-zA-Z0-9_]*"
       }
