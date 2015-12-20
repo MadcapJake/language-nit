@@ -1,7 +1,7 @@
 {
   "name": "language-nit",
   "version": "0.1.0",
-  "description": "Nit langauge support in Atom",
+  "description": "Nit language support in Atom",
   "keywords": [
     "nit",
     "language",
