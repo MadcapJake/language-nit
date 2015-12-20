@@ -55,7 +55,7 @@ repository:
     end: "\\\""
     patterns: [
       {
-        include: "#inshortstring-code"
+        include: "#short-interpolation"
       }
       {
         name: "string.char.nit"
@@ -68,7 +68,7 @@ repository:
     end: "\\\"\\\"\\\""
     patterns: [
       {
-        include: "#inlongstring-code"
+        include: "#long-interpolation"
       }
       {
         name: "string.char.nit"
@@ -81,22 +81,28 @@ repository:
     end: "'''"
     patterns: [
       {
-        include: "#inlongstring-code"
+        include: "#long-interpolation"
       }
     ]
-  "inlongstring-code":
-    name: "incode.nit"
+  "long-interpolation":
+    name: "meta.interpolation.long.nit"
     begin: "{{{"
     end: "}}}"
+    captures:
+      0:
+        name: 'punctuation.section.embedded.nit'
     patterns: [
       {
         include: "$self"
       }
     ]
-  "inshortstring-code":
-    name: "string.quoted.double.untitled"
+  "short-interpolation":
+    name: "meta.interpolation.short.nit"
     begin: "{"
     end: "}"
+    captures:
+      0:
+        name: 'punctuation.section.embedded.nit'
     patterns: [
       {
         include: "$self"
