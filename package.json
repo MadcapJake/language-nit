@@ -1,6 +1,6 @@
 {
   "name": "language-nit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nit language support in Atom",
   "keywords": [
     "nit",
@@ -17,6 +17,5 @@
     "url": "https://github.com/madcapjake/language-nit/issues"
   },
   "homepage": "https://github.com/madcapjake/language-nit#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
