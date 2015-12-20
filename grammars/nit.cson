@@ -226,7 +226,7 @@ repository:
         match: "\\b(isa|as|type|isset)\\b"
       }
       {
-        name: "keyword.misc.nit"
+        name: "keyword.other.special-method.misc.nit"
         match: "\\b(assert|__debug__|super|implies)\\b"
       }
       {
