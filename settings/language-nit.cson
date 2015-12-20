@@ -1,0 +1,6 @@
+'.source.nit':
+  editor:
+    tabType: 'hard'
+    tabLength: 8
+    preferredLineLength: 80
+    commentStart: '#'

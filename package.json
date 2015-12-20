@@ -1,0 +1,22 @@
+{
+  "name": "language-nit",
+  "version": "0.1.0",
+  "description": "Nit langauge support in Atom",
+  "keywords": [
+    "nit",
+    "language",
+    "syntax",
+    "editor"
+  ],
+  "repository": "https://github.com/madcapjake/language-nit",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/madcapjake/language-nit/issues"
+  },
+  "homepage": "https://github.com/madcapjake/language-nit#readme",
+  "dependencies": {
+  }
+}
