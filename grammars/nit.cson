@@ -193,7 +193,7 @@ repository:
       {
         name: "storage.type.nit"
         match: "(?x)\\b(
-          fun|init|redef|class|interface|
+          fun|init|class|interface|
           module|import|package|abstract|
           universal|enum
         )\\b"
@@ -227,7 +227,7 @@ repository:
       }
       {
         name: "keyword.other.special-method.misc.nit"
-        match: "\\b(assert|__debug__|super|implies)\\b"
+        match: "\\b(assert|__debug__|super|implies|redef)\\b"
       }
       {
         name: "keyword.operator.nit"
