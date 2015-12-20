@@ -15,6 +15,9 @@ patterns: [
     include: "#comments"
   }
   {
+    include: "#builtins"
+  }
+  {
     include: "#entity"
   }
   {
@@ -122,6 +125,31 @@ repository:
       }
       {
         include: "#character"
+      }
+    ]
+  "builtins":
+    patterns: [
+      {
+        name: "support.type.core.nit"
+        match: "(?x)\\b(
+          AbstractArray|AbstractArrayRead|Array|ArrayCmp|ArrayMap|ArraySet|
+          BM_Pattern|Bool|Buffer|BufferedReader|Byte|BytePattern|Bytes|
+          CachedAlphaComparator|Char|CircularArray|Cloneable|Coder|Collection|
+          Comparable|Comparator|Couple|CoupleMap|Decoder|DefaultComparator|
+          DefaultReverseComparator|Discrete|DisjointSet|Duplex|Error|FileReader|
+          FileStat|FileStream|FileWriter|Finalizable|FinalizableOnce|FlatBuffer|
+          FlatString|FlatText|Float|HashMap|HashSet|IndexedIterator|Int|IOError|
+          ISODate|Iterator|IteratorDecorator|LineIterator|List|ListIterator|Map|
+          MapComparator|MapIterator|MapKeysIterator|MapRead|MapValuesIterator|
+          Match|MaybeError|MinHeap|NativeArray|NativeString|Numeric|Object|Path|
+          Pattern|PollableReader|Process|ProcessDuplex|ProcessReader|
+          ProcessWriter|Queue|Range|Reader|Ref|Regex|RemovableCollection|
+          RopeBuffer|RopeBufferByteIterator|RopeBufferByteReverseIterator|
+          RopeBufferBytes|RopeBufferCharIterator|RopeBufferCharReverseIterator|
+          RopeBufferChars|Sequence|SequenceRead|Set|SimpleCollection|Stderr|
+          Stdin|Stdout|Stream|String|StringReader|StringWriter|Sys|Task|Text|
+          Writable|Writer
+        )\\b"
       }
     ]
   "variable":
