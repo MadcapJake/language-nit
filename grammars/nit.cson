@@ -30,19 +30,27 @@ patterns: [
   }
 ]
 repository:
-  "comment-single-line":
-    name: "comment.singleline.nit"
-    match: "#.*"
+  "comments":
+    begin: "(^[ \\t]+)?(?=#)"
+    beginCaptures:
+      1:
+        name: "punctuation.whitespace.comment.leading.nit"
+    end: "(?!\\G)"
     patterns: [
       {
-        include: "#comment-single-line"
+        begin: "#"
+        beginCaptures:
+          0:
+            name: "punctuation.definition.comment.nit"
+        end: "\\n"
+        name: "comment.line.number-sign.nit"
       }
     ]
-  character:
+  "character":
     name: "string.character.nit"
     match: "('[^\\\\']'|'\\\\.')"
   "simple-string":
-    name: "string.quoted.double.untitled"
+    name: "string.quoted.double.nit"
     begin: "\\\""
     end: "\\\""
     patterns: [
@@ -94,7 +102,7 @@ repository:
         include: "$self"
       }
     ]
-  strings:
+  "strings":
     patterns: [
       {
         include: "#long-tquote-alt-string"
@@ -109,7 +117,7 @@ repository:
         include: "#character"
       }
     ]
-  variable:
+  "variable":
     patterns: [
       {
         name: "variable.language.nit"
@@ -120,7 +128,7 @@ repository:
         match: "[a-z][a-zA-Z0-9_]*"
       }
     ]
-  constant:
+  "constant":
     patterns: [
       {
         name: "constant.numeric.float_exp.nit"
@@ -151,7 +159,7 @@ repository:
         match: "\\b(true|false|null)\\b"
       }
     ]
-  markup:
+  "markup":
     patterns: [
       {
         name: "markup.raw.nit"
@@ -159,7 +167,7 @@ repository:
         end: "`}"
       }
     ]
-  entity:
+  "entity":
     patterns: [
       {
         name: "entity.name.type.nit"
@@ -170,7 +178,7 @@ repository:
         match: "_[a-z][a-zA-Z0-9_]*"
       }
     ]
-  storage:
+  "storage":
     patterns: [
       {
         name: "storage.type.nit"
@@ -185,7 +193,7 @@ repository:
         match: "\\b(private|protected|public|intrude|extern)\\b"
       }
     ]
-  keyword:
+  "keyword":
     patterns: [
       {
         name: "keyword.control.nit"
