@@ -205,7 +205,10 @@ repository:
       }
       {
         name: "storage.modifier.nit"
-        match: "\\b(private|protected|public|intrude|extern|intern)\\b"
+        match: "(?x)\\b(
+          private|protected|public|intrude|extern|intern|
+          readable|writable|special|noinit
+        )\\b"
       }
     ]
   "keyword":
