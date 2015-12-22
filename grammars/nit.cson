@@ -6,10 +6,10 @@ fileTypes: [
 firstLineMatch: '^#!\\s*\\/.*\\snit'
 patterns: [
   {
-    include: "#strings"
+    include: "#markup"
   }
   {
-    include: "#markup"
+    include: "#strings"
   }
   {
     include: "#comments"
@@ -205,7 +205,7 @@ repository:
         captures:
           0:
             name: "punctuation.section.embedded.markup.nit"
-        name: "meta.markup.java.nit"
+        name: "meta.source.java"
         patterns: [
           {
             include: "source.java"
@@ -222,8 +222,11 @@ repository:
         captures:
           0:
             name: "punctuation.section.embedded.markup.nit"
-        name: "meta.markup.objc.nit"
+        name: "meta.source.objc"
         patterns: [
+          {
+            include: '#c-blocks'
+          }
           {
             include: "source.objc"
           }
@@ -239,8 +242,20 @@ repository:
         captures:
           0:
             name: "punctuation.section.embedded.markup.nit"
-        name: "meta.markup.cpp.nit"
+        name: "meta.source.cpp"
         patterns: [
+          {
+            captures:
+              1:
+                name: 'support.function.any-method.c'
+              2:
+                name: 'punctuation.definition.parameters.c'
+            match: '(?x)(
+                (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
+                (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
+              )\\s*(\\()'
+            name: 'meta.function-call.c'
+          }
           {
             include: "source.cpp"
           }
@@ -252,12 +267,62 @@ repository:
         captures:
           0:
             name: "punctuation.section.embedded.markup.nit"
-        name: "meta.markup.c.nit"
+        name: "meta.source.c"
         patterns: [
           {
-            include: "source.c"
+            include: "#c-blocks"
+          }
+          {
+            include: 'source.c'
           }
         ]
+      }
+    ]
+  "c-blocks":
+    patterns: [
+      {
+        include: 'source.c#preprocessor-rule-enabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-disabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-other-block'
+      }
+      {
+        include: 'source.c#sizeof'
+      }
+      {
+        include: 'source.c#access'
+      }
+      {
+        include: 'source.c#libc'
+      }
+      {
+        include: 'source.c#c_function_call'
+      }
+      {
+        captures:
+          1:
+            name: 'variable.other.c'
+          2:
+            name: 'punctuation.definition.parameters.c'
+        match: '(?x)
+        (?:
+          (?:
+            (?= \\s ) (?<!else|new|return) (?<=\\w)\\s+
+          )
+        )
+        (
+          (?: [A-Za-z_][A-Za-z0-9_]*+ | :: )++
+          |
+          (?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )
+        )
+        \\s*(\\()'
+        name: 'meta.initialization.c'
+      }
+      {
+        include: 'source.c#block'
       }
     ]
   "entity":
